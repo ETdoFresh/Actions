@@ -5,23 +5,20 @@ description: Greet someone and outputs the time
 inputs:
   person:
     description: Person to greet
-    required: false
+    required: true
     default: ' ... is someone there?'
     
 outputs:
   time:
     description: The time when action was run
-    required: false
 
 runs:
   using: 'docker'
-  image: 'docker://alpine'
+  image: 'Dockerfile'
   env:
-    HELLO_TEXT: 'Hello '
-  #entrypoint: /bin/echo
+    HELLO_TEXT: 'Hello'
+  entrypoint: /entrypoint.sh
   args:
-    - /bin/echo
-    - ${{ env.HELLO_TEXT }}
     - ${{ inputs.person }}
 
 branding:
