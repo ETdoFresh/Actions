@@ -4,8 +4,6 @@ on: [push]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-latest    
     steps:
-    - uses: ETdoFresh/Actions/HelloWorld@master
+    - uses: ETdoFresh/Actions/HelloWorld
