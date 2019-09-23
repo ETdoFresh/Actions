@@ -1,0 +1,45 @@
+name: Unity Build Action
+author: ETdoFresh
+description: Build a Unity Project
+
+inputs:
+  UNITY_USERNAME:
+    description: Your Unity Username
+    required: true
+    default: 'etgarcia@my.uno.edu'
+  UNITY_PASSWORD:
+    description: Your Unity Password
+    required: true
+    default: 'GithubCI1'
+  BUILD_NAME:
+    description: Name of your project
+    required: true
+    default: 'Untitled'
+  BUILD_TARGET:
+    description: StandaloneWindows64, StandaloneLinux64, StandaloneOSX, WebGL
+    required: true
+    default: 'StandaloneWindows64'
+  DROPBOX_TOKEN:
+    description: Dropbox App Token
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    BUILD_PATH: ./Build/
+    TEST_PLATFORM: linux
+    WORKDIR: /root/project
+    UNITY_ACTIVATION_FILE: unity3d.alf
+    UNITY_LICENSE_FILE: Unity_v2019.x.ulf
+  entrypoint: /entrypoint.sh
+  args:
+    - ${{ inputs.UNITY_USERNAME }}
+    - ${{ inputs.UNITY_PASSWORD }}
+    - ${{ inputs.BUILD_NAME }}
+    - ${{ inputs.BUILD_TARGET }}
+    - ${{ inputs.DROPBOX_TOKEN }}
+
+branding:
+  color: 'black'
+  icon: 'box'
