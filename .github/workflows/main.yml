@@ -16,4 +16,4 @@ jobs:
       run: echo "The time was ${{ steps.first.outputs.time }}"
       
     - id: third
-      run: date
+      uses: ETdoFresh/Actions/UnityBuild@master
