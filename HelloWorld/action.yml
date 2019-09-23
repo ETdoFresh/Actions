@@ -1,19 +1,26 @@
-name: Hello world action step
-description: 'Greet someone and record the time'
+name: Hello World Action
+author: ETdoFresh
+description: Greet someone and outputs the time
 
-on: [push]
+inputs:
+  person:
+    description: Person to greet
+    required: false
+    default: ' ... is someone there?'
+    
+outputs:
+  time:
+    description: The time when action was run
+    required: false
 
-jobs:
-  hello_world_job:
-    runs-on: ubuntu-latest
-    name: A job to say hello
-    steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-docker-action@v1
-      with:
-        who-to-greet: 'ETdoFresh'
-        
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was IDK"
+runs:
+  using: 'docker'
+  image: 'docker://alpine'
+  env:
+    HELLO_TEXT: 'Hello '
+  entrypoint: ["/bin/echo", $HELLO_TEXT]
+  args:
+    - ${{ inputs.person }}
+  branding:
+    color: 'blue'
+    icon: 'github'
