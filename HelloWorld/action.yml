@@ -21,7 +21,7 @@ runs:
   #entrypoint: /bin/echo
   args:
     - /bin/echo
-    - $HELLO_TEXT
+    - ${{ env.HELLO_TEXT }}
     - ${{ inputs.person }}
 
 branding:
