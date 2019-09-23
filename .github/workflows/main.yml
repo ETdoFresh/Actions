@@ -6,6 +6,14 @@ jobs:
   build:
     runs-on: ubuntu-latest    
     steps:
-    - uses: ETdoFresh/Actions/HelloWorld@master
+    
+    - id: first
+      uses: ETdoFresh/Actions/HelloWorld@master
       with:
         person: 'ETdoFresh'
+        
+    - id: second
+      run: echo "The time was ${{ steps.first.outputs.time }}
+      
+    - id: third
+      run: date
