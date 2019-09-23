@@ -18,7 +18,9 @@ runs:
   image: 'docker://alpine'
   env:
     HELLO_TEXT: 'Hello '
-  entrypoint: /bin/echo $HELLO_TEXT ${{ inputs.person }}
+  entrypoint: '["/bin/echo", $HELLO_TEXT]'
+  args:
+    - ${{ inputs.person }}
 
 branding:
   color: 'blue'
