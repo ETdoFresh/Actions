@@ -72,6 +72,18 @@ echo npm i puppeteer
 npm i puppeteer
 echo
 
+echo apt-get update
+apt-get update
+echo
+
+echo apt-get install curl -y
+apt-get install curl -y
+echo
+
+echo curl "https://raw.githubusercontent.com/ETdoFresh/Actions/master/UnityBuild/license.js" -o license.js
+curl "https://raw.githubusercontent.com/ETdoFresh/Actions/master/UnityBuild/license.js" -o license.js
+echo
+
 echo node license.js
 node license.js
 echo
@@ -96,24 +108,16 @@ echo ls $BUILD_PATH
 ls $BUILD_PATH
 echo
 
-echo apt-get update
-apt-get update
+echo cd $BUILD_PATH
+cd $BUILD_PATH
 echo
 
 echo apt-get install zip -y
 apt-get install zip -y
 echo
 
-echo cd $BUILD_PATH
-cd $BUILD_PATH
-echo
-
 echo zip -r -9 $3_$4_`date +"%Y%m%d%H%M%S"`.zip .
 zip -r -9 $3_$4_`date +"%Y%m%d%H%M%S"`.zip .
-echo
-
-echo apt-get install curl -y
-apt-get install curl -y
 echo
 
 echo curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
