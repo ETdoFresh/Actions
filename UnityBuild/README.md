@@ -14,7 +14,7 @@ with:
 ```
 
 ## Complete Workflow Example (Vanilla Installation)
-Place the following text in .github/workflows/main.yml
+Place the following text in *.github/workflows/main.yml*
 ```
 name: My Very Helpful Workflow
 on:
