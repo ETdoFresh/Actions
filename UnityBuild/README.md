@@ -1,4 +1,4 @@
-# Unity Build and Upload to Docker
+# Unity Build and Deploy to Dropbox
 This action builds a Unity Project, zips it, and uploads it to Dropbox using a Dropbox application.  
 Currently builds 2019.1.14f1. More versions will be implemented later.
 
