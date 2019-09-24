@@ -28,11 +28,9 @@ echo set -e
 set -e
 echo
 
-echo echo ~
+echo "echo ~"
 echo ~
 echo
-
-
 
 echo pwd
 pwd
@@ -42,8 +40,8 @@ echo ls -alR
 ls -alR
 echo
 
-echo ls -alR /home
-ls -alR /home
+echo "ls -alR ~"
+ls -alR ~
 echo
 
 echo rm -Rf $BUILD_PATH || true
