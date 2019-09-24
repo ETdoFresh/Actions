@@ -26,8 +26,12 @@ echo pwd
 pwd
 echo
 
-echo ls -l
-ls -l
+echo ls -alR
+ls -alR
+echo
+
+echo ls -alR /home
+ls -alR /home
 echo
 
 echo rm -Rf $BUILD_PATH || true
