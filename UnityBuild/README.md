@@ -24,14 +24,14 @@ jobs:
     name: Unity Build and Send to Dropbox
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: ETdoFresh/Actions/UnityBuild@master
-        with:
-          UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          BUILD_NAME: MySweetSweetGame
-          BUILD_TARGET: StandaloneWindows64
-          DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
+    - uses: actions/checkout@v1
+    - uses: ETdoFresh/Actions/UnityBuild@master
+      with:
+        UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
+        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        BUILD_NAME: MySweetSweetGame
+        BUILD_TARGET: StandaloneWindows64
+        DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
 ```
 
 ## Inputs
