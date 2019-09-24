@@ -27,3 +27,9 @@ with:
 
 ### `DROPBOX_TOKEN`
 **Required** Secret token given by dropbox application. [Instructions below on how to obtain it]
+
+## Very Special Thanks!
+This action is not possible without the previous works of:
+- GabLeRoux Unity3d Docker https://hub.docker.com/r/gableroux/unity3d/
+- GabLeRoux Example CI Project https://github.com/GabLeRoux/unity3d-ci-example
+- Alexander Buhler Automated License JavaScript https://github.com/GabLeRoux/unity3d-ci-example/issues/6
