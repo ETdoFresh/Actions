@@ -128,8 +128,8 @@ echo apt-get install zip -y
 apt-get install zip -y
 echo
 
-echo zip -r -9 $BUILD_NAME_$BUILD_TARGET_`date +"%Y%m%d%H%M%S"`.zip .
-zip -r -9 $BUILD_NAME_$BUILD_TARGET_`date +"%Y%m%d%H%M%S"`.zip .
+echo zip -r -9 "$BUILD_NAME_$BUILD_TARGET_date +"%Y%m%d%H%M%S"`'.zip" .
+zip -r -9 "$BUILD_NAME_$BUILD_TARGET_`date +"%Y%m%d%H%M%S"`.zip" .
 echo
 
 echo curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
