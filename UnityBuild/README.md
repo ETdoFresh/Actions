@@ -16,7 +16,7 @@ with:
 ## Complete Workflow Example (Vanilla Installation)
 Place the following text in *.github/workflows/main.yml*
 ```
-name: My Very Helpful Workflow
+name: Unity Build and Deploy to Dropbox
 on:
   push:
     branches:
