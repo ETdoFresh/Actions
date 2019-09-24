@@ -13,7 +13,8 @@ with:
   DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
 ```
 
-## Complete Workflow Example
+## Complete Workflow Example (Vanilla Installation)
+Place the following text in .github/workflows/main.yml
 ```
 name: My Very Helpful Workflow
 on:
@@ -34,6 +35,7 @@ jobs:
         BUILD_TARGET: StandaloneWindows64
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
 ```
+After a commit to the *master* branch, this action will build the Unity project, zip it, and send it to your dropbox application.
 
 ## Inputs
 ### `UNITY_USERNAME`
