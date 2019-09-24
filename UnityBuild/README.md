@@ -4,7 +4,7 @@ Currently builds 2019.1.14f1. More versions will be implemented later.
 
 ## Example usage
 ```
-uses: ETdoFresh/Actions/UnityBuild@master
+uses: ETdoFresh/Actions/UnityBuild@latest
 with:
   UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: ETdoFresh/Actions/UnityBuild@master
+    - uses: ETdoFresh/Actions/UnityBuild@latest
       with:
         UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
         UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
