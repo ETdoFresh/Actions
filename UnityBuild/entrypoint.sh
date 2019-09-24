@@ -1,12 +1,23 @@
 #!/bin/sh -l
 
+export UNITY_USERNAME="$1"
+export UNITY_PASSWORD="$2"
+export BUILD_NAME="$3"
+export BUILD_TARGET="$4"
+export DROPBOX_TOKEN="$5"
+
 echo Inputs
 echo ----------------------
-echo UNITY_USERNAME: $1
-echo UNITY_PASSWORD: $2
-echo BUILD_NAME: $3
-echo BUILD_TARGET: $4
-echo DROPBOX_TOKEN: $5
+echo UNITY_USERNAME: $UNITY_USERNAME
+echo UNITY_PASSWORD: $UNITY_PASSWORD
+echo BUILD_NAME: $BUILD_NAME
+echo BUILD_TARGET: $BUILD_TARGET
+echo DROPBOX_TOKEN: $DROPBOX_TOKEN
+echo UNITY_USERNAME: $UNITY_USERNAME
+echo UNITY_PASSWORD: $UNITY_PASSWORD
+echo BUILD_NAME: $BUILD_NAME
+echo BUILD_TARGET: $BUILD_TARGET
+echo DROPBOX_TOKEN: $DROPBOX_TOKEN
 echo
 
 echo Environment Variables
@@ -21,6 +32,12 @@ echo
 echo set -e
 set -e
 echo
+
+echo echo ~
+echo ~
+echo
+
+
 
 echo pwd
 pwd
