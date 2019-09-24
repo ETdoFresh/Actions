@@ -18,6 +18,10 @@ echo UNITY_ACTIVATION_FILE: $UNITY_ACTIVATION_FILE
 echo UNITY_LICENSE_FILE: $UNITY_LICENSE_FILE
 echo
 
+echo set -e
+set -e
+echo
+
 echo pwd
 pwd
 echo
@@ -36,8 +40,8 @@ echo ls -l
 ls -l
 echo
 
-echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile ~/log.txt -batchmode -username "$UNITY_USERNAME" -password "$UNITY_PASSWORD" || true
-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile ~/log.txt -batchmode -username "$UNITY_USERNAME" -password "$UNITY_PASSWORD" || true
+echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile ~/log.txt -batchmode -username "$1" -password "$2" || true
+xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile ~/log.txt -batchmode -username "$1" -password "$2" || true
 echo
 
 echo cat ~/log.txt
@@ -80,8 +84,8 @@ echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/E
 xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -quit -batchmode -buildTarget -logFile /dev/stdout -manualLicenseFile $UNITY_LICENSE_FILE || true
 echo
 
-echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $(pwd) -quit -batchmode -buildTarget $BUILD_TARGET -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod BuildCommand.PerformBuild -logFile /dev/stdout
-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $(pwd) -quit -batchmode -buildTarget $BUILD_TARGET -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod BuildCommand.PerformBuild -logFile /dev/stdout
+echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $(pwd) -quit -batchmode -buildTarget $4 -customBuildTarget $4 -customBuildName $3 -customBuildPath $BUILD_PATH -executeMethod BuildCommand.PerformBuild -logFile /dev/stdout
+xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $(pwd) -quit -batchmode -buildTarget $4 -customBuildTarget $4 -customBuildName $3 -customBuildPath $BUILD_PATH -executeMethod BuildCommand.PerformBuild -logFile /dev/stdout
 echo
 
 echo ls $BUILD_PATH
@@ -100,8 +104,8 @@ echo cd $BUILD_PATH
 cd $BUILD_PATH
 echo
 
-echo zip -r -9 $BUILD_NAME_$BUILD_TARGET_`date +"%Y%m%d%H%M%S"`.zip .
-zip -r -9 $BUILD_NAME_$BUILD_TARGET_`date +"%Y%m%d%H%M%S"`.zip .
+echo zip -r -9 $3_$4_`date +"%Y%m%d%H%M%S"`.zip .
+zip -r -9 $3_$4_`date +"%Y%m%d%H%M%S"`.zip .
 echo
 
 echo apt-get install curl -y
@@ -116,8 +120,8 @@ echo chmod +x dropbox_uploader.sh
 chmod +x dropbox_uploader.sh
 echo
 
-echo echo OAUTH_ACCESS_TOKEN=${{ secrets.DROPBOX_TOKEN }} > /github/home/.dropbox_uploader
-echo OAUTH_ACCESS_TOKEN=${{ secrets.DROPBOX_TOKEN }} > /github/home/.dropbox_uploader
+echo echo OAUTH_ACCESS_TOKEN=$5 > /github/home/.dropbox_uploader
+echo OAUTH_ACCESS_TOKEN=$5 > /github/home/.dropbox_uploader
 echo
 
 echo ./dropbox_uploader.sh upload *.zip .
