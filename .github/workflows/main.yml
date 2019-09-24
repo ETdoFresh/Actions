@@ -17,3 +17,5 @@ jobs:
       
     - id: third
       uses: ETdoFresh/Actions/UnityBuild@master
+      steps:
+        - uses: actions/checkout@v1
