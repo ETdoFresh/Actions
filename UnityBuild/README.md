@@ -1,0 +1,29 @@
+# Unity Build and Upload to Docker
+This action builds a Unity Project, zips it, and uploads it to Dropbox using a Dropbox application.
+
+## Example usage
+```
+uses: ETdoFresh/Actions/UnityBuild@master
+with:
+  UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
+  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  BUILD_NAME: MySweetSweetGame
+  BUILD_TARGET: StandaloneWindows64
+  DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
+```
+
+## Inputs
+### `UNITY_USERNAME`
+**Required** Unity Username used to license the copy of Unity on the cloud
+
+### `UNITY_PASSWORD`
+**Required** Unity Password used to license the copy of Unity on the cloud
+
+### `BUILD_NAME`
+**Required** The name of the build, primarily used to name your executable
+
+### `BUILD_TARGET`
+**Required** Target platform to build for. Options: StandaloneWindows64, StandaloneLinux64, StandaloneOSX, WebGL
+
+### `DROPBOX_TOKEN`
+**Required** Secret token given by dropbox application. [Instructions below on how to obtain it]
