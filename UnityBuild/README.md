@@ -1,6 +1,7 @@
 # Unity 2019.1.14f1 Build and Deploy to Dropbox
 This action builds a Unity Project, zips it, and uploads it to Dropbox using a Dropbox application.
 
+
 ## Example usage
 ```
 uses: ETdoFresh/Actions/UnityBuild@latest
@@ -10,7 +11,9 @@ with:
   BUILD_NAME: MySweetSweetGame
   BUILD_TARGET: StandaloneWindows64
   DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
+  DROPBOX_PATH: '.'
 ```
+
 
 ## Complete Workflow Example (Vanilla Installation)
 Place the following text in *.github/workflows/main.yml*
@@ -33,8 +36,10 @@ jobs:
         BUILD_NAME: MySweetSweetGame
         BUILD_TARGET: StandaloneWindows64
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
+        DROPBOX_PATH: '.'
 ```
 After a commit to the *master* branch, this action will build the Unity project, zip it, and send it to your dropbox application.
+
 
 ## Inputs
 ### `UNITY_USERNAME`
@@ -51,6 +56,10 @@ After a commit to the *master* branch, this action will build the Unity project,
 
 ### `DROPBOX_TOKEN`
 **Required** Secret token given by dropbox application. [Instructions below on how to obtain it]
+
+### `DROPBOX_PATH`
+Location in dropbox to place the zipped build. Default value is '.'.
+
 
 ## Very Special Thanks!
 This action is not possible without the previous works of:
