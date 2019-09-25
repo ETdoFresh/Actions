@@ -5,6 +5,7 @@ export UNITY_PASSWORD="$2"
 export BUILD_NAME="$3"
 export BUILD_TARGET="$4"
 export DROPBOX_TOKEN="$5"
+export DROPBOX_PATH="$6"
 
 # Display Action Inputs
 echo Inputs
@@ -14,6 +15,7 @@ echo UNITY_PASSWORD: $UNITY_PASSWORD
 echo BUILD_NAME: $BUILD_NAME
 echo BUILD_TARGET: $BUILD_TARGET
 echo DROPBOX_TOKEN: $DROPBOX_TOKEN
+echo DROPBOX_PATH: $DROPBOX_PATH
 echo
 
 # Display Action Environment Variables
@@ -116,8 +118,8 @@ echo apt-get install zip -y
 apt-get install zip -y
 echo
 
-echo zip -r -9 "$BUILD_NAME_$BUILD_TARGET_"date +"%Y%m%d%H%M%S"`'.zip .
-zip -r -9 "$BUILD_NAME_$BUILD_TARGET_"`date +"%Y%m%d%H%M%S"`.zip .
+echo zip -r -9 "$BUILD_NAME"_"$BUILD_TARGET"_`date +"%Y%m%d%H%M%S"`.zip .
+zip -r -9 "$BUILD_NAME"_"$BUILD_TARGET"_`date +"%Y%m%d%H%M%S"`.zip .
 echo
 
 # Upload the build to dropbox
@@ -133,6 +135,6 @@ echo echo OAUTH_ACCESS_TOKEN=$DROPBOX_TOKEN > /github/home/.dropbox_uploader
 echo OAUTH_ACCESS_TOKEN=$DROPBOX_TOKEN > /github/home/.dropbox_uploader
 echo
 
-echo ./dropbox_uploader.sh upload *.zip .
-./dropbox_uploader.sh upload *.zip .
+echo ./dropbox_uploader.sh upload *.zip $DROPBOX_PATH
+./dropbox_uploader.sh upload *.zip $DROPBOX_PATH
 echo
