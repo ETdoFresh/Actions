@@ -17,7 +17,7 @@ The time we greeted you.
 ## Example usage
 
 ```
-uses: ETdoFresh/Actions/HelloWorld@master
+uses: ETdoFresh/Actions/HelloWorld@latest
 with:
   person: 'ETdoFresh'
 ```
