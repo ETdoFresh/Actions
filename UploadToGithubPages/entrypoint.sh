@@ -63,8 +63,10 @@ git checkout --orphan gh-pages
 echo git rm -rf .
 git rm -rf .
 
+set +e
 echo git branch --set-upstream-to origin gh-pages
 git branch --set-upstream-to origin gh-pages
+set -e
 
 echo cd ..
 cd ..
