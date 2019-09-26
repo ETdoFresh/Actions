@@ -56,8 +56,12 @@ cd postToGithubPages
 echo git clone https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY current
 git clone https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY current
 
-echo if ! git checkout gh-pages; then git checkout --orphan gh-pages; fi
-if ! git checkout gh-pages; then git checkout --orphan gh-pages; fi
+echo if ! git checkout gh-pages; 
+echo then git checkout --orphan gh-pages;
+echo fi
+if ! git checkout gh-pages;
+then git checkout --orphan gh-pages;
+fi
 
 echo cd current
 cd current
