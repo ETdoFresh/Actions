@@ -89,23 +89,6 @@ echo node license.js
 node license.js
 echo
 
-# Debug: Upload images to dropbox
-echo curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
-curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
-echo
-
-echo chmod +x dropbox_uploader.sh
-chmod +x dropbox_uploader.sh
-echo
-
-echo echo OAUTH_ACCESS_TOKEN=$DROPBOX_TOKEN > /github/home/.dropbox_uploader
-echo OAUTH_ACCESS_TOKEN=$DROPBOX_TOKEN > /github/home/.dropbox_uploader
-echo
-
-echo ./dropbox_uploader.sh upload debug_images/* $DROPBOX_PATH
-./dropbox_uploader.sh upload debug_images/* $DROPBOX_PATH
-echo
-
 # Show the downloaded license file
 echo cat $UNITY_LICENSE_FILE
 cat $UNITY_LICENSE_FILE
@@ -140,6 +123,18 @@ zip -r -9 "$BUILD_NAME"_"$BUILD_TARGET"_`date +"%Y%m%d%H%M%S"`.zip .
 echo
 
 # Upload the build to dropbox
+echo curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
+curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
+echo
+
+echo chmod +x dropbox_uploader.sh
+chmod +x dropbox_uploader.sh
+echo
+
+echo echo OAUTH_ACCESS_TOKEN=$DROPBOX_TOKEN > /github/home/.dropbox_uploader
+echo OAUTH_ACCESS_TOKEN=$DROPBOX_TOKEN > /github/home/.dropbox_uploader
+echo
+
 echo ./dropbox_uploader.sh upload *.zip $DROPBOX_PATH
 ./dropbox_uploader.sh upload *.zip $DROPBOX_PATH
 echo
