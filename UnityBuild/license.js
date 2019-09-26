@@ -3,7 +3,7 @@ const fs = require('fs');
 
 (async () => {
 	
-    const browser = await puppeteer.launch({args: ['--no-sandbox']});
+    const browser = await puppeteer.launch({args: ['--no-sandbox', '--single-process']});
     const page = await browser.newPage();
 
 try {
