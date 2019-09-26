@@ -1,10 +1,10 @@
 # Upload to GitHub Pages
-This action zips file in a given directory and uploads to dropbox.
+This action uploads a directory to a github repository's gh-pages branch. If no branch exists, a new orphan branch is created.
 
 
 ## Example usage
 ```
-uses: ETdoFresh/Actions/UploadZipToDropbox@latest
+uses: ETdoFresh/Actions/UploadToGithubPages@latest
 with:
   DIRECTORY_TO_UPLOAD: './Build/'
   DROPBOX_TARGET: '.'
