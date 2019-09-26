@@ -6,6 +6,8 @@ const fs = require('fs');
     const browser = await puppeteer.launch({args: ['--no-sandbox']});
     const page = await browser.newPage();
 
+    page.on('error', (err) => { console.log('pageerror: ', err) });
+	
     // open manual page
 	await page.goto('https://license.unity3d.com/manual');
 	const mailInputSelector = '#conversations_create_session_form_email',
