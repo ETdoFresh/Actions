@@ -7,6 +7,7 @@ export DROPBOX_TOKEN="$4"
 
 # Replace DATE with YYYYMMDDhhiiss
 export ZIP_FILENAME=${ZIP_FILENAME/DATE/`date +"%Y%m%d%H%M%S"`}
+export DROPBOX_TARGET=${DROPBOX_TARGET/DATE/`date +"%Y%m%d%H%M%S"`}
 
 # Display Action Inputs
 echo Inputs
@@ -38,8 +39,8 @@ echo apk add zip
 apk add zip
 echo
 
-echo zip -r -9 $ZIP_FILENAME.zip .
-zip -r -9 $ZIP_FILENAME.zip .
+echo zip -r -9 $ZIP_FILENAME .
+zip -r -9 $ZIP_FILENAME .
 echo
 
 # Upload the build to dropbox
@@ -63,6 +64,6 @@ echo apk add bash
 apk add bash
 echo
 
-echo ./dropbox_uploader.sh upload $ZIP_FILENAME.zip $DROPBOX_TARGET
-./dropbox_uploader.sh upload $ZIP_FILENAME.zip $DROPBOX_TARGET
+echo ./dropbox_uploader.sh upload $ZIP_FILENAME $DROPBOX_TARGET
+./dropbox_uploader.sh upload $ZIP_FILENAME $DROPBOX_TARGET
 echo

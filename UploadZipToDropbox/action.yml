@@ -8,10 +8,10 @@ inputs:
     default: './Build/'
   ZIP_FILENAME:
     description: Filename of the zip
-    default: 'Build_DATE'
+    default: 'Build_DATE.zip'
   DROPBOX_TARGET:
-    description: Location in Dropbox to place the build zip
-    default: '.'
+    description: Location in Dropbox (including filename) to place the build zip
+    default: '/Build_DATE.zip'
   DROPBOX_TOKEN:
     description: Dropbox App Token
     required: true
