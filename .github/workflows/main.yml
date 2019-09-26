@@ -20,6 +20,6 @@ jobs:
     - uses: ETdoFresh/Actions/DockerLs@latest
     - uses: ETdoFresh/Actions/UploadZipToDropbox@latest
       with:
-        ZIP_FILENAME: DummyBuild_DATE
+        DROPBOX_TARGET: DummyBuild_DATE.zip
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
     # - uses: ETdoFresh/Actions/UnityBuild@latest

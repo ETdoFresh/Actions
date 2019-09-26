@@ -4,14 +4,11 @@ description: Zips a directory and uploads to dropbox
 
 inputs:
   DIRECTORY_TO_ZIP:
-    description: Location on Docker to zip
+    description: Location on Workflow to zip
     default: './Build/'
-  ZIP_FILENAME:
-    description: Filename of the zip
-    default: 'Build_DATE.zip'
   DROPBOX_TARGET:
-    description: Location in Dropbox (including filename) to place the build zip
-    default: '/Build_DATE.zip'
+    description: Target Location in Dropbox to place the build zip
+    default: 'Build_DATE.zip'
   DROPBOX_TOKEN:
     description: Dropbox App Token
     required: true
@@ -21,7 +18,6 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.DIRECTORY_TO_ZIP }}
-    - ${{ inputs.ZIP_FILENAME }}
     - ${{ inputs.DROPBOX_TARGET }}
     - ${{ inputs.DROPBOX_TOKEN }}
  
