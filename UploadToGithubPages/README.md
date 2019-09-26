@@ -1,4 +1,4 @@
-# Zip Files and Upload to Dropbox
+# Upload to GitHub Pages
 This action zips file in a given directory and uploads to dropbox.
 
 
