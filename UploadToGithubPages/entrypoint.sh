@@ -60,13 +60,16 @@ cd current
 echo git checkout -b gh-pages
 git checkout -b gh-pages
 
-echo git rm -rf .
-git rm -rf .
-
 set +e
 echo git branch --set-upstream-to origin gh-pages
 git branch --set-upstream-to origin gh-pages
+
+echo git pull
+git pull
 set -e
+
+echo git rm -rf .
+git rm -rf .
 
 echo cd ..
 cd ..
