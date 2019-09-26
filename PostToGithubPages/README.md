@@ -6,7 +6,7 @@ This action zips file in a given directory and uploads to dropbox.
 ```
 uses: ETdoFresh/Actions/UploadZipToDropbox@latest
 with:
-  DIRECTORY_TO_ZIP: './Build/'
+  DIRECTORY_TO_UPLOAD: './Build/'
   DROPBOX_TARGET: '.'
   DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
 ```
