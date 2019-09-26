@@ -13,7 +13,7 @@ with:
 ```
 
 
-## Complete Workflow Example (Vanilla Installation)
+## Complete Workflow Example (Build, Zip, and Upload to Dropbox)
 Place the following text in your git repository *.github/workflows/main.yml*.  
 *Note*: Currently, this action only work for unity projects on root of the repository.
 ```
@@ -23,9 +23,9 @@ on:
     branches:
     - master
 jobs:
-  build:
+  windows:
     name: Unity Build and Upload to Dropbox
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@v1
     - uses: ETdoFresh/Actions/UnityBuild@latest
@@ -36,8 +36,7 @@ jobs:
         BUILD_TARGET: StandaloneWindows64
     - uses: ETdoFresh/Actions/UploadZipToDropbox@latest
       with:
-        DIRECTORY_TO_ZIP: ./Build/
-        DROPBOX_TARGET: '.'
+        DROPBOX_TARGET: MySweetSweetGame_Windows_DATE.zip
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
 ```
 After a commit to the *master* branch, this action will build the Unity project, zip it, and send it to your dropbox application.
