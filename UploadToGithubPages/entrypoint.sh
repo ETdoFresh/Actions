@@ -57,14 +57,13 @@ git clone https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITO
 echo cd current
 cd current
 
-set +e
-echo git checkout gh-pages
-git checkout gh-pages
+echo git checkout -b gh-pages
+git checkout -b gh-pages
 
 echo git rm -rf .
 git rm -rf .
 
-
+set +e
 echo git branch --set-upstream-to origin gh-pages
 git branch --set-upstream-to origin gh-pages
 set -e
