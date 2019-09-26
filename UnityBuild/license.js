@@ -6,44 +6,42 @@ const fs = require('fs');
     const browser = await puppeteer.launch({args: ['--no-sandbox', '--single-process']});
     const page = await browser.newPage();
 
-try {
     // open manual page
-	await page.goto('https://license.unity3d.com/manual');
-	const mailInputSelector = '#conversations_create_session_form_email',
-		  passInputSelector = '#conversations_create_session_form_password';
+    await page.goto('https://license.unity3d.com/manual');
+    const mailInputSelector = '#conversations_create_session_form_email',
+        passInputSelector = '#conversations_create_session_form_password';
 
     // wait for login redirect
-	await page.waitForSelector(mailInputSelector);
+    await page.waitForSelector(mailInputSelector);
 
     // enter credentials
-	await page.type(mailInputSelector, process.env.UNITY_USERNAME);
-	await page.type(passInputSelector, process.env.UNITY_PASSWORD);
-	//await page.screenshot({ path: 'debug_images/01_entered_credentials.png' });
+    await page.type(mailInputSelector, process.env.UNITY_USERNAME);
+    await page.type(passInputSelector, process.env.UNITY_PASSWORD);
+    //await page.screenshot({ path: 'debug_images/01_entered_credentials.png' });
 
     // click submit
-	await page.click('input[name=commit]');
+    await page.click('input[name=commit]');
 
     // wait for license upload form
-	const licenseUploadfield = '#licenseFile';
-	await page.waitForSelector(licenseUploadfield);
-	//await page.screenshot({ path: 'debug_images/02_opened_form.png' });
+    const licenseUploadfield = '#licenseFile';
+    await page.waitForSelector(licenseUploadfield);
+    //await page.screenshot({ path: 'debug_images/02_opened_form.png' });
 
     // enable interception
-	await page.setRequestInterception(true);
+    await page.setRequestInterception(true);
 
     // upload license
-	page.once("request", interceptedRequest => {
+    page.once("request", interceptedRequest => {
         interceptedRequest.continue({
             method: "POST",
             postData: fs.readFileSync(process.env.UNITY_ACTIVATION_FILE, 'utf8'),
             headers: { "Content-Type": "text/xml" },
         });
-
-	});
+    });
 
     // set license to be personal
-	await page.goto('https://license.unity3d.com/genesis/activation/create-transaction');
-	//await page.screenshot({ path: 'debug_images/03_created_transaction.png' });
+    await page.goto('https://license.unity3d.com/genesis/activation/create-transaction');
+    //await page.screenshot({ path: 'debug_images/03_created_transaction.png' });
 	
     page.once("request", interceptedRequest => {
         interceptedRequest.continue({
@@ -80,8 +78,4 @@ try {
     await page.goto('https://license.unity3d.com/genesis/activation/download-license');
     await page.waitFor(1000);
     await browser.close();
-}
-catch(err) {
-    console.log("LICENSE.JS ERROR: ", err);
-}
 })();
