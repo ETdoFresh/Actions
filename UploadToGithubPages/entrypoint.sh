@@ -95,6 +95,12 @@ git commit -m "Update gh-pages. Auto commit from build"
 echo git push origin gh-pages
 git push origin gh-pages
 
+echo cd ..
+cd ..
+
+echo cd ..
+cd ..
+
 # Clean up
 echo rm -rf postToGithubPages
 rm -rf postToGithubPages
