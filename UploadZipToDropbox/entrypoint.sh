@@ -26,12 +26,12 @@ echo cd $DIRECTORY_TO_ZIP
 cd $DIRECTORY_TO_ZIP
 echo
 
-echo apt-get update
-apt-get update
+echo apk update
+apk update
 echo
 
-echo apt-get install zip -y
-apt-get install zip -y
+echo apk add zip
+apk add zip
 echo
 
 echo zip -r -9 "$BUILD_NAME"_"$BUILD_TARGET"_`date +"%Y%m%d%H%M%S"`.zip .
@@ -39,6 +39,10 @@ zip -r -9 "$BUILD_NAME"_"$BUILD_TARGET"_`date +"%Y%m%d%H%M%S"`.zip .
 echo
 
 # Upload the build to dropbox
+echo apk add curl
+apk add curl
+echo
+
 echo curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
 curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
 echo
