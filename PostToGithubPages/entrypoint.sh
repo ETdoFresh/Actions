@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-export DIRECTORY_TO_POST="$1"
+export DIRECTORY_TO_UPLOAD="$1"
 export GITHUB_REPOSITORY="$2"
 export GITHUB_USERNAME="$3"
 export GITHUB_TOKEN="$4"
@@ -9,7 +9,7 @@ export GITHUB_TOKEN="$4"
 # Display Action Inputs
 echo Inputs
 echo ----------------------
-echo DIRECTORY_TO_POST: $DIRECTORY_TO_POST
+echo DIRECTORY_TO_UPLOAD: $DIRECTORY_TO_UPLOAD
 echo GITHUB_REPOSITORY: $GITHUB_REPOSITORY
 echo GITHUB_USERNAME: $GITHUB_USERNAME
 echo GITHUB_TOKEN: $GITHUB_TOKEN
@@ -19,8 +19,8 @@ echo
 set -e
 
 # Show contents of directory to post
-echo ls -l $DIRECTORY_TO_POST
-ls -l $DIRECTORY_TO_POST
+echo ls -l $DIRECTORY_TO_UPLOAD
+ls -l $DIRECTORY_TO_UPLOAD
 echo
 
 # Zip the build
@@ -66,8 +66,8 @@ cd ..
 echo cd ..
 cd ..
 
-echo cp -r $DIRECTORY_TO_POST/* postToGithubPages/current
-cp -r $DIRECTORY_TO_POST/* postToGithubPages/current
+echo cp -r $DIRECTORY_TO_UPLOAD/* postToGithubPages/current
+cp -r $DIRECTORY_TO_UPLOAD/* postToGithubPages/current
 
 echo cd postToGithubPages/current
 cd postToGithubPages/current
