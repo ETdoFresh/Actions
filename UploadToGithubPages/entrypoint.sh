@@ -39,11 +39,11 @@ apk add bash
 echo curl "https://raw.githubusercontent.com/SixArm/urlencode.sh/master/urlencode.sh" -o urlencode.sh
 curl "https://raw.githubusercontent.com/SixArm/urlencode.sh/master/urlencode.sh" -o urlencode.sh
 
-echo chmod +x urlencode.sh
-chmod +x urlencode.sh
+echo chmod +x ./urlencode.sh
+chmod +x ./urlencode.sh
 
-echo export $GITHUB_USERNAME=$(urlencode.sh $GITHUB_USERNAME)
-export $GITHUB_USERNAME=$(urlencode.sh $GITHUB_USERNAME)
+echo export $GITHUB_USERNAME=$(./urlencode.sh $GITHUB_USERNAME)
+export $GITHUB_USERNAME=$(./urlencode.sh $GITHUB_USERNAME)
 
 echo mkdir postToGithubPages
 mkdir postToGithubPages
@@ -80,4 +80,3 @@ git push origin gh-pages
 
 echo rm -rf postToGithubPages
 rm -rf postToGithubPages
-
