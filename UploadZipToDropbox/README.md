@@ -1,5 +1,5 @@
 # Zip Files and Upload to Dropbox
-This action zips file in a given directory and uploads to dropbox.
+This action zips a given directory and uploads the zip to dropbox.
 
 
 ## Example usage
