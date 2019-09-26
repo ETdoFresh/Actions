@@ -1,0 +1,27 @@
+name: Commit to Github Pages
+author: ETdoFresh
+description: Completely wipe and commit to gh-pages
+
+inputs:
+  DIRECTORY_TO_POST:
+    description: Location on workflow to commit to gh-pages
+    default: './Build/'
+  GITHUB_REPOSITORY:
+    description: Repository location in which to commit
+    required: true
+  GITHUB_USERNAME:
+    description: User who has permission to commit to repository
+    required: true
+  GITHUB_TOKEN:
+    description: Token given to user for access to repository
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.DIRECTORY_TO_POST }}
+    - ${{ inputs.GITHUB_REPOSITORY }}
+    - ${{ inputs.GITHUB_USERNAME }}
+    - ${{ inputs.GITHUB_TOKEN }}
+ 
