@@ -55,6 +55,10 @@ echo echo OAUTH_ACCESS_TOKEN=$DROPBOX_TOKEN > /github/home/.dropbox_uploader
 echo OAUTH_ACCESS_TOKEN=$DROPBOX_TOKEN > /github/home/.dropbox_uploader
 echo
 
+echo apk add bash
+apk add bash
+echo
+
 echo ./dropbox_uploader.sh upload *.zip $DROPBOX_TARGET
 ./dropbox_uploader.sh upload *.zip $DROPBOX_TARGET
 echo
