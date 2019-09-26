@@ -22,4 +22,10 @@ jobs:
       with:
         DROPBOX_TARGET: DummyBuild_DATE.zip
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
+    - uses: ETdoFresh/Actions/UploadToGithubPages@latest
+      with:
+        GITHUB_REPOSITORY: ETdoFresh/Actions
+        GITHUB_USERNAME: ${{ secrets.UNITY_USERNAME }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_GEN_TOKEN }}
+        
     # - uses: ETdoFresh/Actions/UnityBuild@latest
