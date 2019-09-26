@@ -27,5 +27,6 @@ jobs:
         GITHUB_REPOSITORY: ETdoFresh/Actions
         GITHUB_USERNAME: ${{ secrets.UNITY_USERNAME }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_GEN_TOKEN }}
+    - uses: ETdoFresh/Actions/DockerLs@latest
            
     # - uses: ETdoFresh/Actions/UnityBuild@latest
