@@ -65,3 +65,10 @@ echo
 echo ./dropbox_uploader.sh upload $TEMPZIPFILENAME $DROPBOX_TARGET
 ./dropbox_uploader.sh upload $TEMPZIPFILENAME $DROPBOX_TARGET
 echo
+
+# Clean up
+echo rm ./dropbox_uploader.sh
+rm ./dropbox_uploader.sh
+
+echo rm $TEMPZIPFILENAME
+rm $TEMPZIPFILENAME
