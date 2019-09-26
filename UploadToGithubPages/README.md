@@ -1,5 +1,5 @@
 # Upload to GitHub Pages
-This action uploads a directory to a github repository's gh-pages branch. If no branch exists, a new orphan branch is created.
+This action uploads a directory to a github repository's gh-pages branch. If no branch exists, a new orphan branch is created. Any existing files on the branch are not brought over to new commit.
 
 
 ## Example usage
@@ -7,22 +7,21 @@ This action uploads a directory to a github repository's gh-pages branch. If no 
 uses: ETdoFresh/Actions/UploadToGithubPages@latest
 with:
   DIRECTORY_TO_UPLOAD: './Build/'
-  DROPBOX_TARGET: '.'
-  DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
+  GITHUB_REPOSITORY: ETdoFresh/Actions
+  GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_GEN_TOKEN }}
 ```
 
 
 ## Inputs
-### `DIRECTORY_TO_ZIP`
-Location on workflow image to zip. Default value is './Build/'.
+### `DIRECTORY_TO_UPLOAD`
+Location on workflow to commit to gh-pages. Default value is './Build/'.
 
-### `DROPBOX_TARGET`
-Location in dropbox to place the zipped build. Default value is '.'.
+### `GITHUB_REPOSITORY`
+**Required** Repository location in which to commit
 
-### `DROPBOX_TOKEN`
-**Required** Secret token given by dropbox application. [Instructions below on how to obtain it]
+### `GITHUB_USERNAME`
+**Required** User who has permission to commit to repository
 
-
-## Very Special Thanks!
-This action is not possible without the previous works of:
-- Andrea Fabrizi Dropbox-Uploader https://github.com/andreafabrizi/Dropbox-Uploader
+### `GITHUB_TOKEN`
+**Required** Token given to user for access to repository
