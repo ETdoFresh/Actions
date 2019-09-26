@@ -3,7 +3,7 @@ author: ETdoFresh
 description: Completely wipe and commit to gh-pages
 
 inputs:
-  DIRECTORY_TO_POST:
+  DIRECTORY_TO_UPLOAD:
     description: Location on workflow to commit to gh-pages
     default: './Build/'
   GITHUB_REPOSITORY:
@@ -20,7 +20,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.DIRECTORY_TO_POST }}
+    - ${{ inputs.DIRECTORY_TO_UPLOAD }}
     - ${{ inputs.GITHUB_REPOSITORY }}
     - ${{ inputs.GITHUB_USERNAME }}
     - ${{ inputs.GITHUB_TOKEN }}
