@@ -42,8 +42,8 @@ curl "https://raw.githubusercontent.com/SixArm/urlencode.sh/master/urlencode.sh"
 echo chmod +x ./urlencode.sh
 chmod +x ./urlencode.sh
 
-echo export GITHUB_USERNAME=$(./urlencode.sh $GITHUB_USERNAME)
-export GITHUB_USERNAME=$(./urlencode.sh $GITHUB_USERNAME)
+echo export GITHUB_USERNAME_ENC=$(./urlencode.sh $GITHUB_USERNAME)
+export GITHUB_USERNAME_ENC=$(./urlencode.sh $GITHUB_USERNAME)
 
 echo mkdir postToGithubPages
 mkdir postToGithubPages
@@ -51,11 +51,14 @@ mkdir postToGithubPages
 echo cd postToGithubPages
 cd postToGithubPages
 
-echo git clone https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY current
-git clone https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY current
+echo git clone https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY current
+git clone https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY current
 
 echo cd current
 cd current
+
+echo git checkout --orphan gh-pages
+git checkout --orphan gh-pages
 
 echo git rm -rf .
 git rm -rf .
@@ -71,6 +74,12 @@ cp -r $DIRECTORY_TO_UPLOAD/* postToGithubPages/current
 
 echo cd postToGithubPages/current
 cd postToGithubPages/current
+
+echo git config --global user.email $GITHUB_USERNAME
+git config --global user.email $GITHUB_USERNAME
+
+echo git config --global user.name "GitHub Action"
+git config --global user.name "GitHub Action"
 
 echo git commit -m "Update gh-pages. Auto commit from build"
 git commit -m "Update gh-pages. Auto commit from build"
