@@ -51,8 +51,8 @@ mkdir postToGithubPages
 echo cd postToGithubPages
 cd postToGithubPages
 
-echo git clone -b gh-pages https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/ETdoFresh/AttackyWarriors.git current
-git clone -b gh-pages https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/ETdoFresh/AttackyWarriors.git current
+echo git clone -b gh-pages https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY current
+git clone -b gh-pages https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY current
 
 echo cd current
 cd current
