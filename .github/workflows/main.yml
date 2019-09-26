@@ -15,7 +15,7 @@ jobs:
     - id: second
       run: echo "The time was ${{ steps.first.outputs.time }}"
       
-    - uses: ETdoFresh/Actions/DummyBuild@latest
     - uses: actions/checkout@v1
+    - uses: ETdoFresh/Actions/DummyBuild@latest
     - uses: ETdoFresh/Actions/DockerLs@latest
     # - uses: ETdoFresh/Actions/UnityBuild@latest
