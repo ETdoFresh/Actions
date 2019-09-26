@@ -81,6 +81,9 @@ git config --global user.email $GITHUB_USERNAME
 echo git config --global user.name "GitHub Action"
 git config --global user.name "GitHub Action"
 
+echo git add .
+git add .
+
 echo git commit -m "Update gh-pages. Auto commit from build"
 git commit -m "Update gh-pages. Auto commit from build"
 
