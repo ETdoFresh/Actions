@@ -17,7 +17,7 @@ const fs = require('fs');
     // enter credentials
 	await page.type(mailInputSelector, process.env.UNITY_USERNAME);
 	await page.type(passInputSelector, process.env.UNITY_PASSWORD);
-	await page.screenshot({ path: 'debug_images/01_entered_credentials.png' });
+	//await page.screenshot({ path: 'debug_images/01_entered_credentials.png' });
 
     // click submit
 	await page.click('input[name=commit]');
@@ -25,7 +25,7 @@ const fs = require('fs');
     // wait for license upload form
 	const licenseUploadfield = '#licenseFile';
 	await page.waitForSelector(licenseUploadfield);
-	await page.screenshot({ path: 'debug_images/02_opened_form.png' });
+	//await page.screenshot({ path: 'debug_images/02_opened_form.png' });
 
     // enable interception
 	await page.setRequestInterception(true);
@@ -42,7 +42,7 @@ const fs = require('fs');
 
     // set license to be personal
 	await page.goto('https://license.unity3d.com/genesis/activation/create-transaction');
-	await page.screenshot({ path: 'debug_images/03_created_transaction.png' });
+	//await page.screenshot({ path: 'debug_images/03_created_transaction.png' });
 	
     page.once("request", interceptedRequest => {
         interceptedRequest.continue({
@@ -54,7 +54,7 @@ const fs = require('fs');
     
     // get license content
     await page.goto('https://license.unity3d.com/genesis/activation/update-transaction');
-    await page.screenshot({ path: 'debug_images/04_updated_transaction.png' });
+    //await page.screenshot({ path: 'debug_images/04_updated_transaction.png' });
     page.once("request", interceptedRequest => {
         interceptedRequest.continue({
             method: "POST",
@@ -68,9 +68,9 @@ const fs = require('fs');
         try {
             const data = await response.text();
             const dataJson = await JSON.parse(data);
-            fs.writeFileSync("Unity_v2019.x.ulf", dataJson.xml);
+            fs.writeFileSync(process.env.UNITY_LICENSE_FILE, dataJson.xml);
             console.log('license file written.');   
-	    await page.screenshot({ path: 'debug_images/05_received_license.png' });
+	    //await page.screenshot({ path: 'debug_images/05_received_license.png' });
         } catch (e) {
             console.log(e);
             console.log('failed to write license file.');
