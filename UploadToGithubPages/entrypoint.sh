@@ -57,8 +57,8 @@ git clone https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITO
 echo cd current
 cd current
 
-echo git checkout --orphan gh-pages
-git checkout --orphan gh-pages
+echo git checkout gh-pages
+git checkout gh-pages
 
 echo git rm -rf .
 git rm -rf .
