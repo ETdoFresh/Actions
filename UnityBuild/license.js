@@ -6,8 +6,7 @@ const fs = require('fs');
     const browser = await puppeteer.launch({args: ['--no-sandbox']});
     const page = await browser.newPage();
 
-    page.on('error', (err) => { console.log('pageerror: ', err) });
-	
+try {
     // open manual page
 	await page.goto('https://license.unity3d.com/manual');
 	const mailInputSelector = '#conversations_create_session_form_email',
@@ -81,4 +80,8 @@ const fs = require('fs');
     await page.goto('https://license.unity3d.com/genesis/activation/download-license');
     await page.waitFor(1000);
     await browser.close();
+}
+catch(err) {
+    console.log("LICENSE.JS ERROR: ", err);
+}
 })();
