@@ -8,15 +8,14 @@ jobs:
     steps:
     
     - id: first
-      uses: ETdoFresh/Actions/HelloWorld@master
+      uses: ETdoFresh/Actions/HelloWorld@latest
       with:
         person: 'ETdoFresh'
         
     - id: second
       run: echo "The time was ${{ steps.first.outputs.time }}"
       
-    - id: third
-      uses: actions/checkout@v1
-      
-    - id: fourth
-      uses: ETdoFresh/Actions/UnityBuild@latest
+    - uses: ETdoFresh/Actions/DummyBuild@latest
+    - uses: actions/checkout@v1
+    - uses: ETdoFresh/Actions/DockerLs@latest
+    # - uses: ETdoFresh/Actions/UnityBuild@latest

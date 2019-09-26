@@ -1,0 +1,15 @@
+name: Dummy Build
+author: ETdoFresh
+description: Creates a dummy website in a directory
+
+inputs:
+  DIRECTORY:
+    description: Location of dummy website
+    required: true
+    default: './Build'
+    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.DIRECTORY }}
