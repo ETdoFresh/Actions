@@ -56,11 +56,11 @@ cd postToGithubPages
 echo git clone https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY current
 git clone https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY current
 
+echo if ! git checkout gh-pages; then git checkout --orphan gh-pages; fi
+if ! git checkout gh-pages; then git checkout --orphan gh-pages; fi
+
 echo cd current
 cd current
-
-echo git checkout -B gh-pages --track origin/gh-pages
-git checkout -B gh-pages --track origin/gh-pages
 
 # Wipe out current files
 echo git rm -rf .
