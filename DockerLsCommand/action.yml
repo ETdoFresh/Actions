@@ -1,0 +1,26 @@
+name: Hello World Action
+author: ETdoFresh
+description: Greet someone and outputs the time
+
+inputs:
+  person:
+    description: Person to greet
+    required: true
+    default: ' ... is someone there?'
+    
+outputs:
+  time:
+    description: The time when action was run
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    HELLO_TEXT: 'Hello'
+  entrypoint: /entrypoint.sh
+  args:
+    - ${{ inputs.person }}
+
+branding:
+  color: 'blue'
+  icon: 'github'
