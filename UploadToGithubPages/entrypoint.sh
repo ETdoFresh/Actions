@@ -23,7 +23,7 @@ echo ls -l $DIRECTORY_TO_UPLOAD
 ls -l $DIRECTORY_TO_UPLOAD
 echo
 
-# Zip the build
+# Install dependencies
 echo apk update
 apk update
 
@@ -36,6 +36,7 @@ apk add git
 echo apk add bash
 apk add bash
 
+# URL Encode the username
 echo curl "https://raw.githubusercontent.com/SixArm/urlencode.sh/master/urlencode.sh" -o urlencode.sh
 curl "https://raw.githubusercontent.com/SixArm/urlencode.sh/master/urlencode.sh" -o urlencode.sh
 
@@ -45,6 +46,7 @@ chmod +x ./urlencode.sh
 echo export GITHUB_USERNAME_ENC=$(./urlencode.sh $GITHUB_USERNAME)
 export GITHUB_USERNAME_ENC=$(./urlencode.sh $GITHUB_USERNAME)
 
+# Checkout git repository
 echo mkdir postToGithubPages
 mkdir postToGithubPages
 
@@ -60,6 +62,7 @@ cd current
 echo git checkout -B gh-pages --track origin/gh-pages
 git checkout -B gh-pages --track origin/gh-pages
 
+# Wipe out current files
 echo git rm -rf .
 git rm -rf .
 
@@ -69,12 +72,14 @@ cd ..
 echo cd ..
 cd ..
 
+# Copy the new files over
 echo cp -r $DIRECTORY_TO_UPLOAD/* postToGithubPages/current
 cp -r $DIRECTORY_TO_UPLOAD/* postToGithubPages/current
 
 echo cd postToGithubPages/current
 cd postToGithubPages/current
 
+# Commit the new files to gh-pages
 echo git config --global user.email $GITHUB_USERNAME
 git config --global user.email $GITHUB_USERNAME
 
@@ -90,5 +95,9 @@ git commit -m "Update gh-pages. Auto commit from build"
 echo git push origin gh-pages
 git push origin gh-pages
 
+# Clean up
 echo rm -rf postToGithubPages
 rm -rf postToGithubPages
+
+echo rm urlencode.sh
+rm urlencode.sh
