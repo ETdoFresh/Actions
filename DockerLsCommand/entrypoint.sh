@@ -1,5 +1,16 @@
 #!/bin/sh -l
 
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
+set +x
+
+pwd
+ls -l
+
+cd ~
+pwd
+ls -l
+
+cd /github/home
+pwd
+ls -l
+
+set -x
