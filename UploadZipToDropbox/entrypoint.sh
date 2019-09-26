@@ -1,14 +1,18 @@
 #!/bin/sh -l
 
 export DIRECTORY_TO_ZIP="$1"
-export DROPBOX_TARGET="$2"
-export DROPBOX_TOKEN="$3"
+export ZIP_FILENAME="$2"
+export DROPBOX_TARGET="$3"
+export DROPBOX_TOKEN="$4"
 
+# Replace DATE with YYYYMMDDhhiiss
+export ZIP_FILENAME=${ZIP_FILENAME/DATE/`date +"%Y%m%d%H%M%S"`}
 
 # Display Action Inputs
 echo Inputs
 echo ----------------------
 echo DIRECTORY_TO_ZIP: $DIRECTORY_TO_ZIP
+echo ZIP_FILENAME: $ZIP_FILENAME
 echo DROPBOX_TARGET: $DROPBOX_TARGET
 echo DROPBOX_TOKEN: $DROPBOX_TOKEN
 echo
@@ -34,8 +38,8 @@ echo apk add zip
 apk add zip
 echo
 
-echo zip -r -9 "$BUILD_NAME"_"$BUILD_TARGET"_`date +"%Y%m%d%H%M%S"`.zip .
-zip -r -9 "$BUILD_NAME"_"$BUILD_TARGET"_`date +"%Y%m%d%H%M%S"`.zip .
+echo zip -r -9 $ZIP_FILENAME.zip .
+zip -r -9 $ZIP_FILENAME.zip .
 echo
 
 # Upload the build to dropbox
@@ -59,6 +63,6 @@ echo apk add bash
 apk add bash
 echo
 
-echo ./dropbox_uploader.sh upload *.zip $DROPBOX_TARGET
-./dropbox_uploader.sh upload *.zip $DROPBOX_TARGET
+echo ./dropbox_uploader.sh upload $ZIP_FILENAME.zip $DROPBOX_TARGET
+./dropbox_uploader.sh upload $ZIP_FILENAME.zip $DROPBOX_TARGET
 echo
