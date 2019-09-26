@@ -1,0 +1,23 @@
+name: Zip and Upload to Dropbox
+author: ETdoFresh
+description: Zips a directory and uploads to dropbox
+
+inputs:
+  DIRECTORY_TO_ZIP:
+    description: Location on Docker to zip
+    default: './Build/'
+  DROPBOX_TARGET:
+    description: Location in Dropbox to place the build zip
+    default: '.'
+  DROPBOX_TOKEN:
+    description: Dropbox App Token
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.DIRECTORY_TO_ZIP }}
+    - ${{ inputs.DROPBOX_TARGET }}
+    - ${{ inputs.DROPBOX_TOKEN }}
+ 

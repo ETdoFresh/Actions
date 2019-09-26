@@ -19,12 +19,6 @@ inputs:
     description: StandaloneWindows64, StandaloneLinux64, StandaloneOSX, WebGL
     required: true
     default: 'StandaloneWindows64'
-  DROPBOX_TOKEN:
-    description: Dropbox App Token
-    required: true
-  DROPBOX_PATH:
-    description: Location in Dropbox to place the build zip
-    default: '.'
 
 runs:
   using: 'docker'
@@ -41,8 +35,6 @@ runs:
     - ${{ inputs.UNITY_PASSWORD }}
     - ${{ inputs.BUILD_NAME }}
     - ${{ inputs.BUILD_TARGET }}
-    - ${{ inputs.DROPBOX_TOKEN }}
-    - ${{ inputs.DROPBOX_PATH }}
 
 branding:
   color: 'black'

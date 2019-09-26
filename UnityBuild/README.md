@@ -1,5 +1,5 @@
-# Unity 2019.1.14f1 Build and Deploy to Dropbox
-This action builds a Unity Project, zips it, and uploads it to Dropbox using a Dropbox application.
+# Unity 2019.1.14f1 Build
+This action builds a Unity Project to *./Build/*
 
 
 ## Example usage
@@ -10,22 +10,21 @@ with:
   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
   BUILD_NAME: MySweetSweetGame
   BUILD_TARGET: StandaloneWindows64
-  DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
-  DROPBOX_PATH: '.'
 ```
 
 
 ## Complete Workflow Example (Vanilla Installation)
-Place the following text in *.github/workflows/main.yml*
+Place the following text in your git repository *.github/workflows/main.yml*.  
+*Note*: Currently, this action only work for unity projects on root of the repository.
 ```
-name: Unity Build and Deploy to Dropbox
+name: Unity Build and Upload to Dropbox
 on:
   push:
     branches:
     - master
 jobs:
   build:
-    name: Unity Build and Send to Dropbox
+    name: Unity Build and Upload to Dropbox
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -35,8 +34,11 @@ jobs:
         UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         BUILD_NAME: MySweetSweetGame
         BUILD_TARGET: StandaloneWindows64
+    - uses: ETdoFresh/Actions/UploadZipToDropbox@latest
+      with:
+        DIRECTORY_TO_ZIP: ./Build/
+        DROPBOX_TARGET: '.'
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
-        DROPBOX_PATH: '.'
 ```
 After a commit to the *master* branch, this action will build the Unity project, zip it, and send it to your dropbox application.
 
@@ -53,12 +55,6 @@ After a commit to the *master* branch, this action will build the Unity project,
 
 ### `BUILD_TARGET`
 **Required** Target platform to build for. Options: StandaloneWindows64, StandaloneLinux64, StandaloneOSX, WebGL
-
-### `DROPBOX_TOKEN`
-**Required** Secret token given by dropbox application. [Instructions below on how to obtain it]
-
-### `DROPBOX_PATH`
-Location in dropbox to place the zipped build. Default value is '.'.
 
 
 ## Very Special Thanks!
