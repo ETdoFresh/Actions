@@ -53,7 +53,7 @@ After a commit to the *master* branch, this action will build the Unity project,
 **Required** The name of the build, primarily used to name your executable
 
 ### `BUILD_TARGET`
-**Required** Target platform to build for. Options: StandaloneWindows64, StandaloneLinux64, StandaloneOSX, WebGL
+**Required** Target platform to build for. Options: Windows, Linux, OSX, WebGL
 
 
 ## Very Special Thanks!
