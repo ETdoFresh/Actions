@@ -24,12 +24,11 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    BUILD_PATH: ./Build
+    BUILD_PATH: Build
     TEST_PLATFORM: linux
     WORKDIR: /root/project
     UNITY_ACTIVATION_FILE: unity3d.alf
     UNITY_LICENSE_FILE: Unity_v2019.x.ulf
-  entrypoint: /entrypoint.sh
   args:
     - ${{ inputs.UNITY_USERNAME }}
     - ${{ inputs.UNITY_PASSWORD }}
