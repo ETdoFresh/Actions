@@ -6,7 +6,7 @@ using UnityEditor;
 
 namespace ETdoFresh.Actions
 {
-    public static class GithubAction
+    public class GithubAction
     {
         public static void UnityBuild()
         {
