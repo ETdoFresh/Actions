@@ -98,8 +98,8 @@ xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor
 echo
 
 # Get BuildScript.cs
-echo curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/BuildScript.cs" -o Assets/BuildScript.cs
-curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/BuildScript.cs" -o Assets/BuildScript.cs
+echo curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/GithubAction.cs" -o Assets/GithubAction.cs
+curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/GithubAction.cs" -o Assets/GithubAction.cs
 echo
 
 # Build!
