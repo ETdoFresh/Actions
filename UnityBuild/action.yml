@@ -16,9 +16,9 @@ inputs:
     required: true
     default: 'Untitled'
   BUILD_TARGET:
-    description: StandaloneWindows64, StandaloneLinux64, StandaloneOSX, WebGL
+    description: Windows, Linux, OSX, WebGL
     required: true
-    default: 'StandaloneWindows64'
+    default: 'Windows'
 
 runs:
   using: 'docker'
