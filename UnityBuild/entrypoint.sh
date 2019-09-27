@@ -4,8 +4,6 @@ export UNITY_USERNAME="$1"
 export UNITY_PASSWORD="$2"
 export BUILD_NAME="$3"
 export BUILD_TARGET="$4"
-export DROPBOX_TOKEN="$5"
-export DROPBOX_PATH="$6"
 
 # Display Action Inputs
 echo Inputs
