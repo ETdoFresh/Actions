@@ -111,3 +111,5 @@ echo
 echo ls $BUILD_PATH
 ls $BUILD_PATH
 echo
+
+ls -alR
