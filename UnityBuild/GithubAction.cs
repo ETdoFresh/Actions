@@ -17,13 +17,15 @@ namespace ETdoFresh.Actions
 
             var targetPlatform = GetArgument("customBuildTarget");
             var locationPathName = GetArgument("customBuildPath");
+            var buildName = GetArgument("customBuildName");
 
             var buildPlayerOptions = new BuildPlayerOptions
             {
                 scenes = scenes,
                 targetGroup = GetTargetGroup(targetPlatform),
                 target = GetTarget(targetPlatform),
-                locationPathName = GetPath(locationPathName),
+                locationPathName = GetPath(targetPlatform, locationPathName, buildName),
+                options = BuildOptions.None,
             };
             BuildPipeline.BuildPlayer(buildPlayerOptions);
         }
@@ -57,10 +59,16 @@ namespace ETdoFresh.Actions
             return BuildTarget.StandaloneWindows64;
         }
 
-        private static string GetPath(string locationPathName)
+        private static string GetPath(string targetPlatform, string locationPathName, string buildName)
         {
-            if (string.IsNullOrEmpty(locationPathName)) return "Build";
-            return locationPathName;
+            if (locationPathName == null) locationPathName = "";
+            if (locationPathName.EndsWith("/"))
+                locationPathName = locationPathName.Substring(0, locationPathName.Length - 1);
+
+            if (targetPlatform.ToLower() == "windows") return locationPathName + "/" + buildName + ".exe";
+            if (targetPlatform.ToLower() == "android") return locationPathName + "/" + buildName + ".apk";
+            if (targetPlatform.ToLower() == "webgl") return locationPathName;
+            return locationPathName + "/" + buildName;
         }
     }
 }
