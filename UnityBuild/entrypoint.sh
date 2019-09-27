@@ -97,9 +97,14 @@ echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/E
 xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -quit -batchmode -buildTarget -logFile /dev/stdout -manualLicenseFile $UNITY_LICENSE_FILE || true
 echo
 
+# Get BuildScript.cs
+echo curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/BuildScript.cs" -o Assets/BuildScript.cs
+curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/BuildScript.cs" -o Assets/BuildScript.cs
+echo
+
 # Build!
-echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $(pwd) -quit -batchmode -buildTarget $BUILD_TARGET -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod BuildCommand.PerformBuild -logFile /dev/stdout
-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $(pwd) -quit -batchmode -buildTarget $BUILD_TARGET -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod BuildCommand.PerformBuild -logFile /dev/stdout
+echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $(pwd) -quit -batchmode -buildTarget $BUILD_TARGET -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod BuildScript.UnityBuild -logFile /dev/stdout
+xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $(pwd) -quit -batchmode -buildTarget $BUILD_TARGET -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod BuildScript.UnityBuild -logFile /dev/stdout
 echo
 
 # Show contents of build
