@@ -111,6 +111,14 @@ xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor
 echo
 
 # Show contents of build
-echo ls $BUILD_PATH
-ls $BUILD_PATH
+echo ls -l
+ls -l
+echo
+
+echo ls -l $BUILD_PATH
+ls -l $BUILD_PATH
+echo
+
+echo ls -l $UNITY_PROJECT_PATH
+ls -l $UNITY_PROJECT_PATH
 echo
