@@ -17,6 +17,10 @@ inputs:
     description: Windows, Linux, OSX, WebGL
     required: true
     default: 'Windows'
+  UNITY_PROJECT_PATH:
+    description: Path where the Unity Project is located.
+    required: false
+    default: .
 
 runs:
   using: 'docker'
