@@ -6,6 +6,9 @@ export UNITY_PROJECT_PATH="$3"
 export BUILD_NAME="$4"
 export BUILD_TARGET="$5"
 
+export BUILD_PATH=$(pwd)/$BUILD_PATH
+export UNITY_PROJECT_PATH=$(pwd)/$UNITY_PROJECT_PATH
+
 # Display Action Inputs
 echo Inputs
 echo ----------------------
@@ -103,8 +106,8 @@ curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/Gith
 echo
 
 # Build!
-echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $(pwd)/$UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $(pwd)/$BUILD_PATH -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $(pwd)/$UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $(pwd)/$BUILD_PATH -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
+echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
+xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
 echo
 
 # Show contents of build

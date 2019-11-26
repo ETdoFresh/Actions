@@ -5,6 +5,7 @@ export GITHUB_REPOSITORY="$2"
 export GITHUB_USERNAME="$3"
 export GITHUB_TOKEN="$4"
 
+export DIRECTORY_TO_UPLOAD=$(pwd)/$DIRECTORY_TO_UPLOAD
 
 # Display Action Inputs
 echo Inputs
@@ -13,7 +14,6 @@ echo DIRECTORY_TO_UPLOAD: $DIRECTORY_TO_UPLOAD
 echo GITHUB_REPOSITORY: $GITHUB_REPOSITORY
 echo GITHUB_USERNAME: $GITHUB_USERNAME
 echo GITHUB_TOKEN: $GITHUB_TOKEN
-echo
 
 # Stop the script if there's an error
 set -e
