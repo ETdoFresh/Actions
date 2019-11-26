@@ -42,6 +42,10 @@ echo rm -Rf $BUILD_PATH || true
 rm -Rf $BUILD_PATH || true
 echo
 
+echo mkdir $UNITY_PROJECT_PATH/Build || true
+mkdir $UNITY_PROJECT_PATH/Build || true
+echo
+
 # Show contents of current directory
 echo ls -l
 ls -l
