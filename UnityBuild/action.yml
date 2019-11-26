@@ -9,6 +9,10 @@ inputs:
   UNITY_PASSWORD:
     description: Your Unity Password
     required: true
+  UNITY_PROJECT_PATH:
+    description: Path where the Unity Project is located.
+    required: false
+    default: '.'
   BUILD_NAME:
     description: Name of your project
     required: true
@@ -17,10 +21,6 @@ inputs:
     description: Windows, Linux, OSX, WebGL
     required: true
     default: 'Windows'
-  UNITY_PROJECT_PATH:
-    description: Path where the Unity Project is located.
-    required: false
-    default: .
 
 runs:
   using: 'docker'
@@ -34,6 +34,7 @@ runs:
   args:
     - ${{ inputs.UNITY_USERNAME }}
     - ${{ inputs.UNITY_PASSWORD }}
+    - ${{ inputs.UNITY_PROJECT_PATH }}
     - ${{ inputs.BUILD_NAME }}
     - ${{ inputs.BUILD_TARGET }}
 
