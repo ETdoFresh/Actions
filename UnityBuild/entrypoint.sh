@@ -2,8 +2,9 @@
 
 export UNITY_USERNAME="$1"
 export UNITY_PASSWORD="$2"
-export BUILD_NAME="$3"
-export BUILD_TARGET="$4"
+export UNITY_PASSWORD="$3"
+export BUILD_NAME="$4"
+export BUILD_TARGET="$5"
 
 # Display Action Inputs
 echo Inputs
