@@ -112,19 +112,19 @@ echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/E
 xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath Build -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
 echo
 
-#echo mv $UNITY_PROJECT_PATH/Build $BUILD_PATH
-#mv $UNITY_PROJECT_PATH/Build $BUILD_PATH
-#echo
-
 # Show contents of build
 echo ls -l
 ls -l
 echo
 
-echo ls -l $BUILD_PATH
-ls -l $BUILD_PATH
-echo
-
 echo ls -l $UNITY_PROJECT_PATH
 ls -l $UNITY_PROJECT_PATH
+echo
+
+echo mv $UNITY_PROJECT_PATH/Build $BUILD_PATH
+mv $UNITY_PROJECT_PATH/Build $BUILD_PATH
+echo
+
+echo ls -l $BUILD_PATH
+ls -l $BUILD_PATH
 echo
