@@ -40,8 +40,6 @@ echo
 # Create the Build Path
 echo rm -Rf $BUILD_PATH || true
 rm -Rf $BUILD_PATH || true
-echo mkdir -p $BUILD_PATH
-mkdir -p $BUILD_PATH
 echo
 
 # Show contents of current directory
@@ -106,8 +104,12 @@ curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/Gith
 echo
 
 # Build!
-echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
+echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath Build -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
+xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath Build -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
+echo
+
+echo mv $UNITY_PROJECT_PATH/Build $BUILD_PATH
+mv $UNITY_PROJECT_PATH/Build $BUILD_PATH
 echo
 
 # Show contents of build
