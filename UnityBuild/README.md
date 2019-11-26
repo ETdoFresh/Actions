@@ -32,6 +32,7 @@ jobs:
       with:
         UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
         UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+		UNITY_PROJECT_PATH: .
         BUILD_NAME: MySweetSweetGame
         BUILD_TARGET: StandaloneWindows64
     - uses: ETdoFresh/Actions/UploadZipToDropbox@latest
@@ -48,6 +49,9 @@ After a commit to the *master* branch, this action will build the Unity project,
 
 ### `UNITY_PASSWORD`
 **Required** Unity Password used to license the copy of Unity on the cloud
+
+### `UNITY_PROJECT_PATH`
+Path where the Unity Project is located. If not specified, Unity project is expected to be in the root of the repository (Default: .)
 
 ### `BUILD_NAME`
 **Required** The name of the build, primarily used to name your executable
