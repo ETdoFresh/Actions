@@ -5,7 +5,7 @@ description: Completely wipe and commit to gh-pages
 inputs:
   DIRECTORY_TO_UPLOAD:
     description: Location on workflow to commit to gh-pages
-    default: './Build/'
+    default: './Build'
   GITHUB_REPOSITORY:
     description: Repository location in which to commit
     required: true
