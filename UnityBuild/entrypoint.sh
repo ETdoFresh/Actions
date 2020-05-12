@@ -80,8 +80,8 @@ echo npm i fs
 npm i fs
 echo
 
-echo npm i puppeteer@2.11
-npm i puppeteer
+echo npm i puppeteer@2.1.1
+npm i puppeteer@2.1.1
 echo
 
 echo node license.js
