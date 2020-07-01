@@ -1,19 +1,22 @@
 #!/bin/sh -l
 
-export BUILD_TARGET="$1"
-export BUILD_PATH=$(pwd)/build/web
+export GODOT_EXPORT_TARGET="$1"
+export GODOT_EXPORT_DIRECTORY="$2"
+export GODOT_EXPORT_FILE="$3"
+export BUILD_PATH=$(pwd)/GODOT_EXPORT_DIRECTORY
 
 # Display Action Inputs
 echo Inputs
 echo ----------------------
-echo BUILD_TARGET: $BUILD_TARGET
+echo GODOT_EXPORT_TARGET: $GODOT_EXPORT_TARGET
+echo GODOT_EXPORT_DIRECTORY: $GODOT_EXPORT_DIRECTORY
+echo GODOT_EXPORT_FILE: $GODOT_EXPORT_FILE
 echo
 
 # Display Action Environment Variables
 echo Environment Variables
 echo ----------------------
 echo BUILD_PATH: $BUILD_PATH
-echo WORKDIR: $WORKDIR
 echo
 
 # Display current directory
@@ -41,6 +44,6 @@ echo ls
 ls
 echo
 
-echo godot -v --export "HTML5" build/web/index.html
-godot -v --export "HTML5" build/web/index.html
+echo godot -v --export "$GODOT_EXPORT_TARGET" $GODOT_EXPORT_DIRECTORY/$GODOT_EXPORT_FILE
+godot -v --export "$GODOT_EXPORT_TARGET" $GODOT_EXPORT_DIRECTORY/$GODOT_EXPORT_FILE
 echo
