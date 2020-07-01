@@ -4,4 +4,4 @@ RUN pwd
 RUN ls
 RUN mkdir -v -p build/web
 
-CMD ["godot", "-v", "--export", "'HTML5'", "build/web/index.html"]
+CMD ["godot", "-v", "--export", "\"HTML5\"", "build/web/index.html"]
