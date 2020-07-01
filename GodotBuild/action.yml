@@ -1,0 +1,29 @@
+name: Godot 3.2.1 Build
+author: ETdoFresh
+description: Build a Godot Project
+
+inputs:
+  GODOT_EXPORT_TARGET:
+    description: Windows Desktop, Mac OSX, Linux/X11, HTML5, Android, iOS, Windows Universal
+    required: true
+    default: 'HTML5'
+  GODOT_EXPORT_DIRECTORY:
+    description: Path to place the build
+    required: true
+    default: 'build/web'
+  GODOT_EXPORT_FILE:
+    description: Filename of the build
+    required: true
+    default: 'index.html'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.GODOT_EXPORT_TARGET }}
+    - ${{ inputs.GODOT_EXPORT_DIRECTORY }}
+    - ${{ inputs.GODOT_EXPORT_FILE }}
+
+branding:
+  color: 'blue'
+  icon: 'settings'
