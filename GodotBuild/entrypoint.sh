@@ -3,7 +3,7 @@
 export GODOT_EXPORT_TARGET="$1"
 export GODOT_EXPORT_DIRECTORY="$2"
 export GODOT_EXPORT_FILE="$3"
-export BUILD_PATH=$(pwd)/GODOT_EXPORT_DIRECTORY
+export BUILD_PATH=$(pwd)/$(GODOT_EXPORT_DIRECTORY)
 
 # Display Action Inputs
 echo Inputs
