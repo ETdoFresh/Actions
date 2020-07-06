@@ -1,0 +1,23 @@
+name: Hugo Build
+author: ETdoFresh
+description: Build a Hugo Project
+
+inputs:
+  HUGO_VERSION:
+    description: Version of Hugo to use for build
+    required: true
+    default: '0.70.0'
+  HUGO_ARGS:
+    description: Arguments to be passed to Hugo
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.HUGO_VERSION }}
+    - ${{ inputs.HUGO_ARGS }}
+
+branding:
+  color: 'black'
+  icon: 'settings'
