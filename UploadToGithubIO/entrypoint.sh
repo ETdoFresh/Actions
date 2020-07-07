@@ -14,9 +14,6 @@ echo GITHUB_IO_REPOSITORY: $GITHUB_IO_REPOSITORY
 echo GITHUB_USERNAME: $GITHUB_USERNAME
 echo GITHUB_TOKEN: $GITHUB_TOKEN
 
-# Stop the script if there's an error
-set -e
-
 echo ls -l $DIRECTORY_TO_UPLOAD
 ls -l $DIRECTORY_TO_UPLOAD
 echo
@@ -24,16 +21,9 @@ echo
 echo apk update
 apk update
 
-echo apk add curl
-apk add curl
+echo apk add curl git bash
+apk add curl git bash
 
-echo apk add git
-apk add git
-
-echo apk add bash
-apk add bash
-
-# URL Encode the username
 echo curl "https://raw.githubusercontent.com/SixArm/urlencode.sh/master/urlencode.sh" -o urlencode.sh
 curl "https://raw.githubusercontent.com/SixArm/urlencode.sh/master/urlencode.sh" -o urlencode.sh
 
@@ -43,37 +33,24 @@ chmod +x ./urlencode.sh
 echo export GITHUB_USERNAME_ENC=$(./urlencode.sh $GITHUB_USERNAME)
 export GITHUB_USERNAME_ENC=$(./urlencode.sh $GITHUB_USERNAME)
 
-# Checkout git repository
 echo mkdir postToGithubIO
 mkdir postToGithubIO
 
 echo cd postToGithubIO
 cd postToGithubIO
 
-echo git clone https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_IO_REPOSITORY current
-git clone https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_IO_REPOSITORY current
-
-echo cd current
-cd current
-
-# Wipe out current files
-echo git rm -rf .
-git rm -rf .
+echo git clone --no-checkout https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_IO_REPOSITORY .
+git clone --no-checkout https://$GITHUB_USERNAME_ENC:$GITHUB_TOKEN@github.com/$GITHUB_IO_REPOSITORY .
 
 echo cd ..
 cd ..
 
-echo cd ..
-cd ..
+echo cp -r $DIRECTORY_TO_UPLOAD/* postToGithubIO
+cp -r $DIRECTORY_TO_UPLOAD/* postToGithubIO
 
-# Copy the new files over
-echo cp -r $DIRECTORY_TO_UPLOAD/* postToGithubIO/current
-cp -r $DIRECTORY_TO_UPLOAD/* postToGithubIO/current
+echo cd postToGithubIO
+cd postToGithubIO
 
-echo cd postToGithubIO/current
-cd postToGithubIO/current
-
-# Commit the new files to gh-pages
 echo git config --global user.email $GITHUB_USERNAME
 git config --global user.email $GITHUB_USERNAME
 
@@ -92,10 +69,6 @@ git push
 echo cd ..
 cd ..
 
-echo cd ..
-cd ..
-
-# Clean up
 echo rm -rf postToGithubIO
 rm -rf postToGithubIO
 
