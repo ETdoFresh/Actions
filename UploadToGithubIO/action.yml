@@ -1,0 +1,27 @@
+name: Commit to Github IO Repository
+author: ETdoFresh
+description: Completely wipe and commit to github.io
+
+inputs:
+  DIRECTORY_TO_UPLOAD:
+    description: Location of workflow to commit to gh-pages
+    default: './public'
+  GITHUB_IO_REPOSITORY:
+    description: GitHub.io Repository location in which to commit
+    required: true
+  GITHUB_USERNAME:
+    description: User who has permission to commit to repository
+    required: true
+  GITHUB_TOKEN:
+    description: Token given to user for access to repository
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.DIRECTORY_TO_UPLOAD }}
+    - ${{ inputs.GITHUB_IO_REPOSITORY }}
+    - ${{ inputs.GITHUB_USERNAME }}
+    - ${{ inputs.GITHUB_TOKEN }}
+ 
