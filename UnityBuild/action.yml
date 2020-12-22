@@ -1,4 +1,4 @@
-name: Unity 2019.1.14f1 Build
+name: Unity 2020.1.10f1 Build
 author: ETdoFresh
 description: Build a Unity Project
 
@@ -29,8 +29,8 @@ runs:
     BUILD_PATH: Build
     TEST_PLATFORM: linux
     WORKDIR: /root/project
-    UNITY_ACTIVATION_FILE: unity3d.alf
-    UNITY_LICENSE_FILE: Unity_v2019.x.ulf
+    UNITY_ACTIVATION_FILE: UnityActivation.alf
+    UNITY_LICENSE_FILE: UnityLicense.ulf
   args:
     - ${{ inputs.UNITY_USERNAME }}
     - ${{ inputs.UNITY_PASSWORD }}
