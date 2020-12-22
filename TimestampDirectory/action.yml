@@ -1,0 +1,14 @@
+name: Timestamp Directory
+author: ETdoFresh
+description: Copy a directory into itself
+
+inputs:
+  DIRECTORY_TO_COPY:
+    description: Directory whose contents will be copied.
+    default: './Build'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.DIRECTORY_TO_COPY }}
