@@ -4,7 +4,7 @@ This action builds a Unity Project to *./Build/*
 
 ## Example usage
 ```
-uses: ETdoFresh/Actions/UnityBuild@latest
+uses: ETdoFresh/Actions/UnityBuild@2019.1.14f1
 with:
   UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
