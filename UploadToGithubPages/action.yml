@@ -6,6 +6,9 @@ inputs:
   DIRECTORY_TO_UPLOAD:
     description: Location on workflow to commit to gh-pages
     default: './Build'
+  WIPEOUT_PREVIOUS_CONTENT:
+    description: Delete existing contents?
+    default: 1
   GITHUB_REPOSITORY:
     description: Repository location in which to commit
     required: true
@@ -21,6 +24,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.DIRECTORY_TO_UPLOAD }}
+    - ${{ inputs.WIPEOUT_PREVIOUS_COMMIT }}
     - ${{ inputs.GITHUB_REPOSITORY }}
     - ${{ inputs.GITHUB_USERNAME }}
     - ${{ inputs.GITHUB_TOKEN }}

@@ -1,9 +1,10 @@
 #!/bin/sh -l
 
 export DIRECTORY_TO_UPLOAD="$1"
-export GITHUB_REPOSITORY="$2"
-export GITHUB_USERNAME="$3"
-export GITHUB_TOKEN="$4"
+export WIPEOUT_PREVIOUS_CONTENT="$2"
+export GITHUB_REPOSITORY="$3"
+export GITHUB_USERNAME="$4"
+export GITHUB_TOKEN="$5"
 
 export DIRECTORY_TO_UPLOAD=$(pwd)/$DIRECTORY_TO_UPLOAD
 
@@ -11,6 +12,7 @@ export DIRECTORY_TO_UPLOAD=$(pwd)/$DIRECTORY_TO_UPLOAD
 echo Inputs
 echo ----------------------
 echo DIRECTORY_TO_UPLOAD: $DIRECTORY_TO_UPLOAD
+echo WIPEOUT_PREVIOUS_CONTENT: $WIPEOUT_PREVIOUS_CONTENT
 echo GITHUB_REPOSITORY: $GITHUB_REPOSITORY
 echo GITHUB_USERNAME: $GITHUB_USERNAME
 echo GITHUB_TOKEN: $GITHUB_TOKEN
@@ -67,8 +69,12 @@ then git checkout --orphan gh-pages;
 fi
 
 # Wipe out current files
-echo git rm -rf .
-git rm -rf .
+echo if $WIPEOUT_PREVIOUS_CONTENT -eq 1;
+echo then git rm -rf .;
+echo fi
+if $WIPEOUT_PREVIOUS_CONTENT -eq 1;
+then git rm -rf .;
+fi
 
 echo cd ..
 cd ..

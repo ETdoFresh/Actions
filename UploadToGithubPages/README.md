@@ -14,8 +14,12 @@ with:
 
 
 ## Inputs
+
 ### `DIRECTORY_TO_UPLOAD`
 Location on workflow to commit to gh-pages. Default value is './Build/'.
+
+### `WIPEOUT_PREVIOUS_CONTENT`
+Should previous content be deleted? 1 for yes. 0 for no. Default value is 1.
 
 ### `GITHUB_REPOSITORY`
 **Required** Repository location in which to commit
