@@ -4,14 +4,14 @@ This action copies a directory into itself with the latest tag.
 Before:
 
 ```
-- /DirectoryToTimestamp
+- /DirectoryToTag
     - Readme.txt
 ```
 
 After: [Assuming latest tag is v0.0.2]
 
 ```
-- DirectoryToTimestamp/
+- DirectoryToTag/
     - v0.0.2/
         - Readme.txt
     - Readme.txt
