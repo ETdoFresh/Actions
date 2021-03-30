@@ -1,4 +1,4 @@
-# Unity 2020.1.10f1 Build
+# Unity 2020.3.1f1 LTS Build
 This action builds a Unity Project to *./Build/*
 
 
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@v1
-    - uses: ETdoFresh/Actions/UnityBuild@latest
+    - uses: ETdoFresh/Actions/UnityBuild@2020.3.1f1
       with:
         UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
         UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
@@ -62,7 +62,6 @@ Path where the Unity Project is located. If not specified, Unity project is expe
 
 ## Very Special Thanks!
 This action is not possible without the previous works of:
-- GabLeRoux Unity3d Docker https://hub.docker.com/r/gableroux/unity3d/
-- GabLeRoux Example CI Project https://github.com/GabLeRoux/unity3d-ci-example
+- Unityci Editor Docker https://hub.docker.com/r/unityci/editor
 - Alexander Buhler Automated License JavaScript https://github.com/GabLeRoux/unity3d-ci-example/issues/6
 - Andrea Fabrizi Dropbox-Uploader https://github.com/andreafabrizi/Dropbox-Uploader

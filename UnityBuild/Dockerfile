@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM gableroux/unity3d:2020.1.10f1-webgl
+FROM unityci/editor:2020.3.1f1-webgl-0
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
