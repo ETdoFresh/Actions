@@ -48,8 +48,8 @@ ls -l
 echo
 
 # Get License
-echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile ~/log.txt -batchmode -username "$UNITY_USERNAME" -password "$UNITY_PASSWORD" || true
-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -logFile ~/log.txt -batchmode -username "$UNITY_USERNAME" -password "$UNITY_PASSWORD" || true
+echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/unity/Editor/Unity -logFile ~/log.txt -batchmode -username "$UNITY_USERNAME" -password "$UNITY_PASSWORD" || true
+xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/unity/Editor/Unity -logFile ~/log.txt -batchmode -username "$UNITY_USERNAME" -password "$UNITY_PASSWORD" || true
 echo
 
 # Write only license information to activation file
@@ -98,8 +98,8 @@ cat $UNITY_LICENSE_FILE
 echo
 
 # Activate cloud's copy of Unity
-echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -quit -batchmode -buildTarget -logFile /dev/stdout -manualLicenseFile $UNITY_LICENSE_FILE || true
-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -quit -batchmode -buildTarget -logFile /dev/stdout -manualLicenseFile $UNITY_LICENSE_FILE || true
+echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/unity/Editor/Unity -quit -batchmode -buildTarget -logFile /dev/stdout -manualLicenseFile $UNITY_LICENSE_FILE || true
+xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/unity/Editor/Unity -quit -batchmode -buildTarget -logFile /dev/stdout -manualLicenseFile $UNITY_LICENSE_FILE || true
 echo
 
 # Get BuildScript.cs
@@ -108,8 +108,8 @@ curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/Gith
 echo
 
 # Build!
-echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
+echo xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
+xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/unity/Editor/Unity -projectPath $UNITY_PROJECT_PATH -quit -batchmode -customBuildTarget $BUILD_TARGET -customBuildName $BUILD_NAME -customBuildPath $BUILD_PATH -executeMethod ETdoFresh.Actions.GithubAction.UnityBuild -logFile /dev/stdout
 echo
 
 # Show contents of build
