@@ -71,6 +71,10 @@ echo apt-get install curl -y
 apt-get install curl -y
 echo
 
+echo apt-get install npm -y
+apt-get install npm -y
+echo
+
 echo curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/license.js" -o license.js
 curl "https://raw.githubusercontent.com/ETdoFresh/Actions/latest/UnityBuild/license.js" -o license.js
 echo
