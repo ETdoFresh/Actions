@@ -1,10 +1,10 @@
-# Unity 2020.3.2f1 LTS Build
+# Unity 2019.4.19f1 LTS Build
 This action builds a Unity Project to *./Build/*
 
 
 ## Example usage
 ```
-uses: ETdoFresh/Actions/UnityBuild@2020.3.2f1
+uses: ETdoFresh/Actions/UnityBuild@2019.4.19f1
 with:
   UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@v1
-    - uses: ETdoFresh/Actions/UnityBuild@2020.3.2f1
+    - uses: ETdoFresh/Actions/UnityBuild@2019.4.19f1
       with:
         UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
         UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
